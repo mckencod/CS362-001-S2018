@@ -86,6 +86,8 @@ public class ApptRandomTest {
 		                 description,
 		                 emailAddress);
 
+		         appt.setValid();
+
 			 if(!appt.getValid())continue;
 			for (int i = 0; i < NUM_TESTS; i++) {
 					String methodName = ApptRandomTest.RandomSelectMethod(random);
@@ -106,7 +108,8 @@ public class ApptRandomTest {
 				 elapsed = (Calendar.getInstance().getTimeInMillis() - startTime);
 			        if((iteration%10000)==0 && iteration!=0 )
 			              System.out.println("elapsed time: "+ elapsed + " of "+TestTimeout);
-			 
+			
+			appt.isOn(startDay, startMonth, startYear); 
 			}
 		}catch(NullPointerException e){
 			
