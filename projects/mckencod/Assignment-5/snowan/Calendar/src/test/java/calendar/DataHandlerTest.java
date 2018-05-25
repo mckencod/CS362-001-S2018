@@ -57,7 +57,7 @@ public class DataHandlerTest{
   		"thisday@calendar.com");
 
   	handlerTest00.getApptRange(gCal00, gCal02);
-  	handlerTest00.getNextApptOccurrence(myAppt00, gCal00);
+  	//handlerTest00.getNextApptOccurrence(myAppt00, gCal00);
   }
 
 }

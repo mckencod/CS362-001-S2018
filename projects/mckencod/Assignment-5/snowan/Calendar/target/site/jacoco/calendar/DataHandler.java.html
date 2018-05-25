@@ -98,13 +98,13 @@ public class DataHandler {
 <span class="fc" id="L98">        Document doc = null;</span>
         try {
 <span class="fc" id="L100">            File file = new File(fileName);</span>
-<span class="fc bfc" id="L101" title="All 2 branches covered.">            if (file.isFile()) {</span>
+<span class="pc bpc" id="L101" title="1 of 2 branches missed.">            if (file.isFile()) {</span>
 <span class="fc" id="L102">                doc = db.parse(file);</span>
             }
             else {
-<span class="fc" id="L105">                String newFile = &quot;&lt;?xml version=\&quot;1.0\&quot;?&gt;&lt;calendar/&gt;&quot;;</span>
-<span class="fc" id="L106">                InputSource is = new InputSource(new StringReader(newFile));</span>
-<span class="fc" id="L107">                doc = db.parse(is);</span>
+<span class="nc" id="L105">                String newFile = &quot;&lt;?xml version=\&quot;1.0\&quot;?&gt;&lt;calendar/&gt;&quot;;</span>
+<span class="nc" id="L106">                InputSource is = new InputSource(new StringReader(newFile));</span>
+<span class="nc" id="L107">                doc = db.parse(is);</span>
             }
         }
 <span class="nc" id="L110">        catch (SAXException se) {</span>
@@ -168,7 +168,7 @@ public class DataHandler {
             
             //Retrieve the root's children - &lt;appt&gt; nodes
 <span class="fc" id="L170">            NodeList appts = root.getChildNodes();</span>
-<span class="fc bfc" id="L171" title="All 2 branches covered.">            for (int i = 0; i &lt; appts.getLength(); i++) {</span>
+<span class="pc bpc" id="L171" title="1 of 2 branches missed.">            for (int i = 0; i &lt; appts.getLength(); i++) {</span>
 <span class="fc" id="L172">                Element currentAppt = (Element) appts.item(i);</span>
                 
 <span class="pc bpc" id="L174" title="1 of 2 branches missed.">                if (diagnose) {</span>
@@ -266,7 +266,7 @@ public class DataHandler {
 <span class="nc" id="L266">                    System.out.println(&quot;This appointment is done.&quot;);</span>
                 }
             } //for nodelist
-<span class="fc" id="L269">            return calDays;</span>
+<span class="nc" id="L269">            return calDays;</span>
         }
 
     
@@ -301,7 +301,7 @@ public class DataHandler {
 <span class="pc bpc" id="L301" title="1 of 2 branches missed.">        for (int i = 0; i &lt; appt.getRecurNumber()+1; i++) {</span>
             
             //Add the day of occurrence to the list if it is after the first day
-<span class="fc bfc" id="L304" title="All 2 branches covered.">            if (!occurrenceDay.before(firstDay)) {</span>
+<span class="pc bpc" id="L304" title="1 of 2 branches missed.">            if (!occurrenceDay.before(firstDay)) {</span>
 <span class="fc" id="L305">                result.add(occurrenceDay);</span>
             }
             
@@ -390,8 +390,8 @@ public class DataHandler {
     public boolean saveAppt(Appt appt) {
         
         //First things first - Do not save invalid appointments
-<span class="pc bpc" id="L393" title="1 of 2 branches missed.">        if (!appt.getValid()) {</span>
-<span class="nc" id="L394">            return false;</span>
+<span class="fc bfc" id="L393" title="All 2 branches covered.">        if (!appt.getValid()) {</span>
+<span class="fc" id="L394">            return true;</span>
         }
         
         //Add a new appt element node to the XML tree
@@ -507,20 +507,20 @@ public class DataHandler {
     public boolean deleteAppt(Appt appt) {
         //Do not do anything to invalid appointments
 <span class="pc bpc" id="L509" title="1 of 2 branches missed.">        if (!appt.getValid()) {</span>
-<span class="nc" id="L510">            return false;</span>
+<span class="fc" id="L510">            return false;</span>
         }
         
         //Remove the appointment from the XML tree if applicable
-<span class="fc" id="L514">        Element apptElement = appt.getXmlElement();</span>
-<span class="pc bpc" id="L515" title="1 of 2 branches missed.">        if (apptElement == null) {</span>
+<span class="nc" id="L514">        Element apptElement = appt.getXmlElement();</span>
+<span class="nc bnc" id="L515" title="All 2 branches missed.">        if (apptElement == null) {</span>
 <span class="nc" id="L516">            return false;</span>
         }
-<span class="fc" id="L518">        Node parentNode = apptElement.getParentNode();</span>
-<span class="fc" id="L519">        parentNode.removeChild(apptElement);</span>
-<span class="fc" id="L520">        appt.setXmlElement(null);</span>
+<span class="nc" id="L518">        Node parentNode = apptElement.getParentNode();</span>
+<span class="nc" id="L519">        parentNode.removeChild(apptElement);</span>
+<span class="nc" id="L520">        appt.setXmlElement(null);</span>
         
-<span class="pc bpc" id="L522" title="1 of 2 branches missed.">        if (isAutoSave()) {</span>
-<span class="fc" id="L523">            return save();</span>
+<span class="nc bnc" id="L522" title="All 2 branches missed.">        if (isAutoSave()) {</span>
+<span class="nc" id="L523">            return save();</span>
         }
         else {
 <span class="nc" id="L526">            return true;</span>

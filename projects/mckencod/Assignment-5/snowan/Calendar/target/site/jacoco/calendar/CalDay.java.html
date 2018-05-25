@@ -60,7 +60,7 @@ public class CalDay {
 	
 <span class="fc" id="L61">		setDay(day);</span>
 <span class="fc" id="L62">		setMonth(month+1);</span>
-<span class="fc" id="L63">		setYear(year);</span>
+<span class="fc" id="L63">		setYear(day);</span>
 	
 <span class="fc" id="L65">		setAppts(new LinkedList&lt;Appt&gt;());</span>
 	
@@ -94,7 +94,7 @@ public class CalDay {
 	 * @return True if this is an initalized CalDay object
 	 */
 	public boolean isValid() {
-<span class="nc" id="L97">	    return valid;</span>
+<span class="fc" id="L97">	    return valid;</span>
 	}
 	
 	/**
@@ -104,8 +104,8 @@ public class CalDay {
 	 * time set placed at the beginning.
 	 */
 	public Iterator&lt;?&gt; iterator() {
-<span class="nc bnc" id="L107" title="All 2 branches missed.">	    if (isValid()) {</span>
-<span class="nc" id="L108">	        return getAppts().iterator();</span>
+<span class="pc bpc" id="L107" title="1 of 2 branches missed.">	    if (isValid()) {</span>
+<span class="fc" id="L108">	        return getAppts().iterator();</span>
 	    }
 	    else {
 <span class="nc" id="L111">	        return null;</span>
@@ -146,7 +146,7 @@ public class CalDay {
 	}		
 	/** Gets day */
 	public int getDay() {
-<span class="nc" id="L149">	    return day;</span>
+<span class="fc" id="L149">	    return day;</span>
 	}
 	
 	/** 
@@ -154,12 +154,12 @@ public class CalDay {
 	 * are represented by 0-11 
 	 */
 	public int getMonth() {
-<span class="nc" id="L157">	    return month;</span>
+<span class="fc" id="L157">	    return month;</span>
 	}
 	
 	/** Gets year */
 	public int getYear() {
-<span class="nc" id="L162">	    return year;</span>
+<span class="fc" id="L162">	    return year;</span>
 	}
 
 	/**
@@ -170,23 +170,23 @@ public class CalDay {
 	 * debugging.
 	 */
 	public String toString() {
-<span class="nc" id="L173">	     StringBuilder sb = new StringBuilder();</span>
+<span class="fc" id="L173">	     StringBuilder sb = new StringBuilder();</span>
 	
-<span class="nc bnc" id="L175" title="All 2 branches missed.">		if (isValid()) {</span>
-<span class="nc" id="L176">			String todayDate = (getMonth()+1) + &quot;/&quot; + getDay() + &quot;/&quot; + getYear();</span>
-<span class="nc" id="L177">			sb.append(&quot;\t --- &quot; + todayDate + &quot; --- \n&quot;);</span>
-<span class="nc" id="L178">			sb.append(&quot; --- -------- Appointments ------------ --- \n&quot;);</span>
-<span class="nc" id="L179">			Iterator&lt;Appt&gt; itr = this.appts.iterator();</span>
-<span class="nc bnc" id="L180" title="All 2 branches missed.">		    while(itr.hasNext()) {</span>
+<span class="pc bpc" id="L175" title="1 of 2 branches missed.">		if (isValid()) {</span>
+<span class="fc" id="L176">			String todayDate = (getMonth()+1) + &quot;/&quot; + getDay() + &quot;/&quot; + getYear();</span>
+<span class="fc" id="L177">			sb.append(&quot;\t --- &quot; + todayDate + &quot; --- \n&quot;);</span>
+<span class="fc" id="L178">			sb.append(&quot; --- -------- Appointments ------------ --- \n&quot;);</span>
+<span class="fc" id="L179">			Iterator&lt;Appt&gt; itr = this.appts.iterator();</span>
+<span class="pc bpc" id="L180" title="1 of 2 branches missed.">		    while(itr.hasNext()) {</span>
 <span class="nc" id="L181">		         Object element = itr.next();</span>
 		         
 <span class="nc" id="L183">		         sb.append(element + &quot; &quot;);</span>
 <span class="nc" id="L184">		      }</span>
 		  
 //			sb.append(this.appts);
-<span class="nc" id="L187">			sb.append(&quot;\n&quot;);</span>
+<span class="fc" id="L187">			sb.append(&quot;\n&quot;);</span>
 		}
-<span class="nc" id="L189">       	 return sb.toString();</span>
+<span class="fc" id="L189">       	 return sb.toString();</span>
 
 	}
 	
@@ -196,12 +196,12 @@ public class CalDay {
 	**/
     public String getFullInfomrationApp( Object calday) {
                     
-<span class="nc" id="L199">        Iterator itr = ((CalDay)calday).iterator();</span>
+<span class="fc" id="L199">        Iterator itr = ((CalDay)calday).iterator();</span>
         
         String buffer;
-<span class="nc" id="L202">        buffer = Integer.toString(((CalDay)calday).getMonth())+ &quot;-&quot;; </span>
-<span class="nc" id="L203">        buffer += Integer.toString(((CalDay)calday).getDay())+ &quot;-&quot;;  </span>
-<span class="nc" id="L204">        buffer += Integer.toString(((CalDay)calday).getYear())+ &quot; &quot;; </span>
+<span class="fc" id="L202">        buffer = Integer.toString(((CalDay)calday).getMonth())+ &quot;-&quot;; </span>
+<span class="fc" id="L203">        buffer += Integer.toString(((CalDay)calday).getDay())+ &quot;-&quot;;  </span>
+<span class="fc" id="L204">        buffer += Integer.toString(((CalDay)calday).getYear())+ &quot; &quot;; </span>
 
         Appt appointment;
         
@@ -211,52 +211,52 @@ public class CalDay {
 		String meridianString;
         
         //go through the day and get the data to display
-<span class="nc bnc" id="L214" title="All 2 branches missed.">        while(itr.hasNext()){</span>
+<span class="fc bfc" id="L214" title="All 2 branches covered.">        while(itr.hasNext()){</span>
         	
-<span class="nc" id="L216">        	buffer += &quot;\n\t&quot;;</span>
+<span class="fc" id="L216">        	buffer += &quot;\n\t&quot;;</span>
         	
-<span class="nc" id="L218">        	appointment = (Appt)itr.next();</span>
+<span class="fc" id="L218">        	appointment = (Appt)itr.next();</span>
 			
-<span class="nc bnc" id="L220" title="All 2 branches missed.">			if(appointment.hasTimeSet()){</span>
+<span class="pc bpc" id="L220" title="1 of 2 branches missed.">			if(appointment.hasTimeSet()){</span>
 				
 				//figure AM/PM notation
-<span class="nc" id="L223">				hour = appointment.getStartHour();</span>
-<span class="nc bnc" id="L224" title="All 2 branches missed.">				if(hour&gt;12){</span>
-<span class="nc" id="L225">					meridianString = &quot;PM&quot;;</span>
+<span class="fc" id="L223">				hour = appointment.getStartHour();</span>
+<span class="fc bfc" id="L224" title="All 2 branches covered.">				if(hour&gt;12){</span>
+<span class="fc" id="L225">					meridianString = &quot;PM&quot;;</span>
 				}
 				else{
-<span class="nc" id="L228">					meridianString = &quot;AM&quot;;	</span>
+<span class="fc" id="L228">					meridianString = &quot;AM&quot;;	</span>
 				}
 				
 				//convert from 24 to 12 hour time
-<span class="nc bnc" id="L232" title="All 2 branches missed.">				if(hour == 0){</span>
+<span class="pc bpc" id="L232" title="1 of 2 branches missed.">				if(hour == 0){</span>
 <span class="nc" id="L233">					hour = 12;	</span>
 				}
 				else{
-<span class="nc" id="L236">					hour = hour%12;</span>
+<span class="fc" id="L236">					hour = hour%12;</span>
 				}
 				
 				//add preceding zero to minutes less than 10
-<span class="nc" id="L240">				minute = appointment.getStartMinute();</span>
-<span class="nc bnc" id="L241" title="All 2 branches missed.">				if(minute &lt; 10){</span>
+<span class="fc" id="L240">				minute = appointment.getStartMinute();</span>
+<span class="pc bpc" id="L241" title="1 of 2 branches missed.">				if(minute &lt; 10){</span>
 <span class="nc" id="L242">					minString = new String(&quot;0&quot; + Integer.toString(minute));</span>
 				}
 				else{
-<span class="nc" id="L245">					minString = Integer.toString(minute);</span>
+<span class="fc" id="L245">					minString = Integer.toString(minute);</span>
 				}
 				
 				//create the string containing a data summary
-<span class="nc" id="L249">				buffer += hour + &quot;:&quot; + minString + meridianString + &quot; &quot;;</span>
+<span class="fc" id="L249">				buffer += hour + &quot;:&quot; + minString + meridianString + &quot; &quot;;</span>
 
 			}
-<span class="nc" id="L252">				buffer += appointment.getTitle()+ &quot; &quot;;</span>
-<span class="nc" id="L253">				buffer += appointment.getDescription()+ &quot; &quot;;</span>
+<span class="fc" id="L252">				buffer += appointment.getTitle()+ &quot; &quot;;</span>
+<span class="fc" id="L253">				buffer += appointment.getDescription()+ &quot; &quot;;</span>
 				
 				
         }
         
         
-<span class="nc" id="L259">        return buffer;</span>
+<span class="fc" id="L259">        return buffer;</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.0.201801022044</span></div></body></html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="1" failures="0" name="calendar.ApptRandomTest" time="30.02" errors="0" skipped="0">
+<testsuite tests="2" failures="0" name="calendar.DataHandlerTest" time="4.049" errors="1" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="9.0.4+11"/>
@@ -62,5 +62,26 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="calendar.ApptRandomTest" name="radnomtest" time="30.02"/>
+  <testcase classname="calendar.DataHandlerTest" name="test00" time="0.031"/>
+  <testcase classname="calendar.DataHandlerTest" name="test01" time="4.018">
+    <error message="test timed out after 4000 milliseconds" type="org.junit.runners.model.TestTimedOutException">org.junit.runners.model.TestTimedOutException: test timed out after 4000 milliseconds
+	at java.base@9.0.4/java.util.GregorianCalendar.computeFields(GregorianCalendar.java:2309)
+	at java.base@9.0.4/java.util.Calendar.setTimeInMillis(Calendar.java:1804)
+	at java.base@9.0.4/java.util.GregorianCalendar.add(GregorianCalendar.java:1077)
+	at app//calendar.DataHandler.getApptRange(DataHandler.java:256)
+	at app//calendar.DataHandlerTest.test01(DataHandlerTest.java:59)
+	at java.base@9.0.4/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base@9.0.4/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base@9.0.4/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base@9.0.4/java.lang.reflect.Method.invoke(Method.java:564)
+	at app//org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
+	at app//org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at app//org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
+	at app//org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
+	at app//org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
+	at java.base@9.0.4/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base@9.0.4/java.lang.Thread.run(Thread.java:844)
+</error>
+  </testcase>
 </testsuite>
